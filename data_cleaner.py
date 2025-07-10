@@ -26,15 +26,16 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     missing_per_row = cleaned_df.isnull().sum(axis=1)
     cleaned_df = cleaned_df[missing_per_row <= len(cleaned_df.columns) * 0.5]
     
+    # Impute missing values in rows with less than 50% missing data
     # Fill missing numeric values with median
     numeric_cols = cleaned_df.select_dtypes(include=[np.number]).columns
     for col in numeric_cols:
-        cleaned_df[col].fillna(cleaned_df[col].median(), inplace=True)
+        cleaned_df[col] = cleaned_df[col].fillna(cleaned_df[col].median())
     
     # Fill missing categorical values with 'Missing'
     categorical_cols = cleaned_df.select_dtypes(include=['object']).columns
     for col in categorical_cols:
-        cleaned_df[col].fillna('Missing', inplace=True)
+        cleaned_df[col] = cleaned_df[col].fillna('Missing')
     
     return cleaned_df
 

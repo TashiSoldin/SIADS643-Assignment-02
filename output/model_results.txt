@@ -1,0 +1,23 @@
+MODEL RESULTS
+====================
+Target: species
+Accuracy: 0.990
+Train size: 239
+Test size: 103
+
+Feature Importance:
+  bill_length_mm: 0.377
+  flipper_length_mm: 0.270
+  bill_depth_mm: 0.253
+  body_mass_g: 0.093
+  sex: 0.008
+
+              precision    recall  f1-score   support
+
+      Adelie       1.00      0.98      0.99        45
+   Chinstrap       0.95      1.00      0.98        21
+      Gentoo       1.00      1.00      1.00        37
+
+    accuracy                           0.99       103
+   macro avg       0.98      0.99      0.99       103
+weighted avg       0.99      0.99      0.99       103
